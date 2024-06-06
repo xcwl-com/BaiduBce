@@ -2,8 +2,9 @@
 BaiduBce.phar Composer版
 官方地址：https://cloud.baidu.com/doc/Developer/index.html?sdk=php
 
-# v0.9.22
-采用baidu-bce-php-sdk v0.9.22版本
+# 版本说明
+采用baidu-bce-php-sdk v0.9.22版本，根据官方实时更新
+将Guzzle3.9升级至GuzzleHttp7.x
 
 # 使用
 
