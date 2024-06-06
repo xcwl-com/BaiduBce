@@ -15,8 +15,10 @@
     },
     "autoload": {
         "psr-4": {
-            "BaiduBce\\": "src/",
-			"Guzzle\\": "guzzle/src/"
+            "BaiduBce\\": "src/"
+        },
+		"psr-0": {
+            "Guzzle\\": "guzzle/src/"
         }
     },
     "authors": [
