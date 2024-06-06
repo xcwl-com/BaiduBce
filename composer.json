@@ -2,14 +2,21 @@
     "name": "xcwl/baidu-bce",
     "description": "BaiduBce.phar Composer版",
     "type": "library",
+    "keywords": [
+	"BaiduBce",
+	"baidu-bce",
+	"baidu php sdk",
+	"baidu bce",
+    ],
     "license": "MIT",
     "require": {
+	"php": ">=7.0"
         "guzzlehttp/guzzle": "^7.5",
         "monolog/monolog": "^2.8"
     },
     "autoload": {
         "psr-4": {
-            "Xcwl\\BaiduBce\\": "src/"
+            "BaiduBce\\": "src/"
         }
     },
     "authors": [
