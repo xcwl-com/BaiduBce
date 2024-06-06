@@ -2,6 +2,7 @@
     "name": "xcwl/baidu-bce",
     "description": "BaiduBce.phar Composer版",
     "type": "library",
+    "license": "MIT",
     "require": {
         "guzzle/guzzle": "3.9",
         "monolog/monolog": "^2.9"
