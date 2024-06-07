@@ -160,11 +160,12 @@ class BceHttpClient {
 			//set body to a empty string
 			$entityBody = "";
 		} else if (is_resource($body)) {
-			$offset = ftell($body);
-			// $entityBody = UTils::streamFor($body); 7.x 写法
+			// $offset = ftell($body);
+			// 7.x 写法
+			$entityBody = Utils::streamFor($body);
 			// 3.9写法，不确认7.x是否兼容
-			$original = EntityBody::factory($body);
-			$entityBody = new ReadLimitEntityBody($original, $headers[HttpHeaders::CONTENT_LENGTH], $offset);
+			// $original = EntityBody::factory($body);
+			// $entityBody = new ReadLimitEntityBody($original, $headers[HttpHeaders::CONTENT_LENGTH], $offset);
 		} else {
 			$entityBody = $body;
 		}
@@ -221,7 +222,7 @@ class BceHttpClient {
 		if ($outputStream !== null) {
 			// $guzzleRequest->setResponseBody($outputStream);
 			$stream = Utils::streamFor($outputStream);
-			$guzzleRequestOptions['save_to'] = $stream;
+			$guzzleRequestOptions['sink'] = $stream;
 		}
 
 		// Send request

@@ -1887,6 +1887,7 @@ class BosClient extends BceBaseClient {
 				$bucketName,
 				$key,
 				$outputStream,
+				$versionId,
 				$options
 			);
 			if (is_resource($outputStream)) {
