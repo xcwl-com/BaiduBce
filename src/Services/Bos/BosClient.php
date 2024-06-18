@@ -2024,14 +2024,15 @@ class BosClient extends BceBaseClient {
 			);
 		}
 
-		list($config, $userMetadata, $etag, $storageClass, $keepTime, $contentType) = $this->parseOptions(
+		list($config, $userMetadata, $etag, $storageClass, $keepTime, $contentType, $contentDisposition) = $this->parseOptions(
 			$options,
 			BosOptions::CONFIG,
 			BosOptions::USER_METADATA,
 			BosOptions::ETAG,
 			BosOptions::STORAGE_CLASS,
 			BosOptions::BCE_KEEP_TIME,
-			BosOptions::CONTENT_TYPE
+			BosOptions::CONTENT_TYPE,
+			BosOptions::CONTENT_DISPOSITION
 		);
 
 		$headers = array();
@@ -2061,6 +2062,9 @@ class BosClient extends BceBaseClient {
 		}
 		if ($contentType !== null) {
 			$headers[HttpHeaders::CONTENT_TYPE] = $contentType;
+		}
+		if ($contentDisposition !== null) {
+			$headers[HttpHeaders::CONTENT_DISPOSITION] = $contentDisposition;
 		}
 
 		return $this->sendRequest(
