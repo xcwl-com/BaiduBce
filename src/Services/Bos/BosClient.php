@@ -2055,19 +2055,20 @@ class BosClient extends BceBaseClient {
 			);
 		}
 		if ($storageClass !== null) {
-			$headers[HttpHeaders::BCE_COPY_METADATA_DIRECTIVE] = 'replace';
 			$headers[HttpHeaders::BCE_STORAGE_CLASS] = $storageClass;
 		}
 		if ($keepTime !== null) {
 			$headers[HttpHeaders::BCE_KEEP_TIME] = $headers[HttpHeaders::BCE_COPY_SOURCE];
 		}
 		if ($contentType !== null) {
-			$headers[HttpHeaders::BCE_COPY_METADATA_DIRECTIVE] = 'replace';
 			$headers[HttpHeaders::CONTENT_TYPE] = $contentType;
 		}
 		if ($contentDisposition !== null) {
-			$headers[HttpHeaders::BCE_COPY_METADATA_DIRECTIVE] = 'replace';
 			$headers[HttpHeaders::CONTENT_DISPOSITION] = $contentDisposition;
+		}
+
+		if ($sourceBucketName == $targetBucketName && $sourceKey == $targetKey) {
+			$headers[HttpHeaders::BCE_COPY_METADATA_DIRECTIVE] = 'replace';
 		}
 
 		return $this->sendRequest(
